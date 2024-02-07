@@ -16,7 +16,7 @@
 
 #include "string.h"
 
-int syscall(void *arg1, void *arg2, void *arg3, void *arg4);
+int syscall(void *NR, void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 
 int sys_write(int fd, String str);
 int sys_read(int fd, String str, int bytes);
