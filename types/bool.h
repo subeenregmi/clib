@@ -5,12 +5,12 @@
  *
  * Implementation of a simple bool type.
  */
-#ifndef CLIB_BOOL_H
-#define CLIB_BOOL_H
+#ifndef CLIB_TYPES_BOOL_H
+#define CLIB_TYPES_BOOL_H
 
 typedef enum {
     True = 1,
     False = 0
 } Bool;
 
-#endif // CLIB_BOOL_H
+#endif // CLIB_TYPES_BOOL_H

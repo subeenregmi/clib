@@ -1,5 +1,6 @@
 #include "syscall.h"
 #include "syscall_def.h"
+#include "poll.h"
 
 int syscall(void *NR, void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
     int ret;
@@ -15,8 +16,8 @@ int syscall(void *NR, void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
     return ret;
 }
 
-int sys_write(int fd, String str) {
-    return syscall((void*)SYS_WRITE, (void*)fd, str, (void*)str_length(str), 0, 0, 0);
+int sys_write(int fd, String str, unsigned int length) {
+    return syscall((void*)SYS_WRITE, (void*)fd, str, (void*)length, 0, 0, 0);
 }
 
 int sys_read(int fd, String str, int bytes) {
@@ -30,10 +31,21 @@ int sys_open(String filename, int flags, int mode) {
 int sys_close(int fd) {
     return syscall((void*)SYS_CLOSE, (void*)fd, 0, 0, 0, 0, 0);
 }
+
+int sys_poll(struct pollfd *poll, unsigned int n_polls, int timeout) {
+    return syscall((void*)SYS_POLL, poll, (void*)n_polls, (void*)timeout, 0, 0, 0);
+}
+
 /*
 int main() {
-    String s = "hello world";
-    sys_write(STDOUT_FD, s);
+    String a = "Your name is ";
+    String s = "What is your name?\n";
+    sys_write(STDOUT_FD, s, str_length(s));
+    String name;
+    sys_read(STDIN_FD, name, 6);
+    sys_write(STDOUT_FD, a, str_length(a));
+    sys_write(STDOUT_FD, name, str_length(name));
+
     return 0;
 }
 */

@@ -6,8 +6,8 @@
  * This is the implementation of strings and some helper functions
  * for strings.
  */
-#ifndef CLIB_STRINGS_H
-#define CLIB_STRINGS_H
+#ifndef CLIB_TYPES_STRINGS_H
+#define CLIB_TYPES_STRINGS_H
 
 #include "bool.h"
 
@@ -17,4 +17,4 @@ unsigned int str_length(String str);
 Bool str_empty(String str);
 
 
-#endif // CLIB_STRINGS_H
+#endif // CLIB_TYPES_STRINGS_H

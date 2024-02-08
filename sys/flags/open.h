@@ -10,8 +10,8 @@
  * Note: The mode parameter is mostly ignored if you are not creating a
  * new file.
  */
-#ifndef CLIB_FLAGS_OPEN_H
-#define CLIB_FLAGS_OPEN_H
+#ifndef CLIB_SYS_FLAGS_OPEN_H
+#define CLIB_SYS_FLAGS_OPEN_H
 
 // Flags param
 
@@ -59,4 +59,4 @@
 #define OPEN_OTHERS_W               2
 #define OPEN_OTHERS_X               1
 
-#endif // CLIB_FLAGS_OPEN_H
+#endif // CLIB_SYS_FLAGS_OPEN_H

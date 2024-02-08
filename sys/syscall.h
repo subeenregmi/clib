@@ -11,17 +11,17 @@
  * Note: Some params are outlined in the flags/<syscall>.h directory, e.g:
  * open has its flags and mode params outlined in flags/open.h
  */
-#ifndef CLIB_SYSCALL_H
-#define CLIB_SYSCALL_H
+#ifndef CLIB_SYS_SYSCALL_H
+#define CLIB_SYS_SYSCALL_H
 
 #include "string.h"
 
 int syscall(void *NR, void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 
-int sys_write(int fd, String str);
+int sys_write(int fd, String str, unsigned int length);
 int sys_read(int fd, String str, int bytes);
 int sys_open(String filename, int flags, int mode);
 int sys_close(int fd);
 
-#endif // CLIB_SYSCALL_H
+#endif // CLIB_SYS_SYSCALL_H
 

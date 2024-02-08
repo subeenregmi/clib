@@ -6,8 +6,8 @@
  * These are all the x86_64 system calls that are defined in clib currently, 
  * and all the common file descriptors.
  */
-#ifndef CLIB_SYSCALL_DEF_H
-#define CLIB_SYSCALL_DEF_H
+#ifndef CLIB_SYS_SYSCALL_DEF_H
+#define CLIB_SYS_SYSCALL_DEF_H
 
 // Common File Descriptors
 #define STDIN_FD        0
@@ -19,5 +19,6 @@
 #define SYS_WRITE       1
 #define SYS_OPEN        2
 #define SYS_CLOSE       3
+#define SYS_POLL        7
 
-#endif // CLIB_SYSCALL_DEF_H
+#endif // CLIB_SYS_SYSCALL_DEF_H
