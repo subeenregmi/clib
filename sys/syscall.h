@@ -15,13 +15,18 @@
 #define CLIB_SYS_SYSCALL_H
 
 #include "string.h"
+#include "poll.h"
+
+typedef unsigned long int ulint_t;
 
 int syscall(void *NR, void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 
-int sys_write(int fd, String str, unsigned int length);
-int sys_read(int fd, String str, int bytes);
-int sys_open(String filename, int flags, int mode);
-int sys_close(int fd);
+int sys_write(ulint_t fd, String str, ulint_t length);
+int sys_read(ulint_t fd, String str, ulint_t bytes);
+int sys_open(String filename, ulint_t flags, ulint_t mode);
+int sys_close(ulint_t fd);
+int sys_poll(struct pollfd *poll, ulint_t n_polls, int timeout);
+int sys_lseek(ulint_t fd, int offset, int whence);
 
 #endif // CLIB_SYS_SYSCALL_H
 
