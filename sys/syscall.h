@@ -26,7 +26,7 @@ int sys_read(ulint_t fd, String str, ulint_t bytes);
 int sys_open(String filename, ulint_t flags, ulint_t mode);
 int sys_close(ulint_t fd);
 int sys_poll(struct pollfd *poll, ulint_t n_polls, int timeout);
-int sys_lseek(ulint_t fd, int offset, int whence);
+int sys_lseek(ulint_t fd, int offset, ulint_t whence);
 
 #endif // CLIB_SYS_SYSCALL_H
 

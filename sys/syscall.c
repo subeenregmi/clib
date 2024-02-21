@@ -35,8 +35,8 @@ int sys_poll(struct pollfd *poll, ulint_t n_polls, int timeout) {
     return syscall((void*)SYS_POLL, poll, (void*)n_polls, (void*)timeout, 0, 0, 0);
 }
 
-int sys_lseek(ulint_t fd, int offset, int whence) {
-    return -1;
+int sys_lseek(ulint_t fd, int offset, ulint_t whence) {
+    return syscall((void*)SYS_LSEEK, (void*)fd, (void*)offset, (void*)whence, 0, 0, 0);
 }
 
 int main() {
@@ -61,6 +61,5 @@ int main() {
         else
             counter++;
     }
-
     return counter;
 }
