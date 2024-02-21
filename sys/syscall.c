@@ -1,5 +1,7 @@
 #include "syscall.h"
 #include "syscall_def.h"
+#include "lseek.h"
+#include "open.h"
 
 int syscall(void *NR, void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
     int ret;
@@ -40,26 +42,11 @@ int sys_lseek(ulint_t fd, int offset, ulint_t whence) {
 }
 
 int main() {
-    String a = "Your name is ";
-    String s = "What is your name?\n";
-    sys_write(STDOUT_FD, s, str_length(s));
-    char name[6];
-    int counter = 0;
-
-    struct pollfd mypoll;
-    mypoll.fd = 0;
-    mypoll.events = POLL_NREAD;
-    mypoll.revents = 0;
-    
-    while (1) {
-        if (sys_poll(&mypoll, 1, 1000) == 1) {
-            sys_read(STDIN_FD, name, 6);
-            sys_write(STDOUT_FD, a, str_length(a));
-            sys_write(STDOUT_FD, name, 6);
-            break;
-        }
-        else
-            counter++;
-    }
-    return counter;
+    String filename = "myfile.txt";
+    char text[256]; 
+    int fd = sys_open(filename, OPEN_READ_ONLY, 0);
+    sys_lseek(fd, 5, LSEEK_START);
+    sys_read(fd, text, 20);
+    sys_write(STDOUT_FD, text, 20);
+    sys_close(fd);
 }
