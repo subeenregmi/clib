@@ -27,6 +27,7 @@ int sys_open(String filename, ulint_t flags, ulint_t mode);
 int sys_close(ulint_t fd);
 int sys_poll(struct pollfd *poll, ulint_t n_polls, int timeout);
 int sys_lseek(ulint_t fd, int offset, ulint_t whence);
+int sys_mmap(ulint_t addr, ulint_t bytes, ulint_t prot, ulint_t flags, ulint_t fd, ulint_t offset);
 
 #endif // CLIB_SYS_SYSCALL_H
 

@@ -41,6 +41,10 @@ int sys_lseek(ulint_t fd, int offset, ulint_t whence) {
     return syscall((void*)SYS_LSEEK, (void*)fd, (void*)offset, (void*)whence, 0, 0, 0);
 }
 
+int sys_mmap(ulint_t addr, ulint_t bytes, ulint_t prot, ulint_t flags, ulint_t fd, ulint_t offset) {
+    return syscall((void*)addr, (void*)bytes, (void*)prot, (void*)flags, (void*)fd, (void*)offset);
+};
+
 int main() {
     String filename = "myfile.txt";
     char text[256]; 
